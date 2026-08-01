@@ -1,0 +1,23 @@
+Items: {
+	TwistedMirror: {
+		DisplayName: Twisted Mirror
+		Tooltip: ""
+	}
+}
+
+Biomes: {
+	TwistedMainWorldBiome: {
+		DisplayName: Twisted Main World Biome
+		TownNPCDialogueName: the Twisted Main World Biome
+	}
+
+	TwistedSurfaceBiome: {
+		DisplayName: Twisted Surface Biome
+		TownNPCDialogueName: the Twisted Surface Biome
+	}
+
+	TwistedUndergroundBiome: {
+		DisplayName: Twisted Underground Biome
+		TownNPCDialogueName: the Twisted Underground Biome
+	}
+}
