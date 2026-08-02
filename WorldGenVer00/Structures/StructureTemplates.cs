@@ -103,6 +103,50 @@ namespace WorldGenVer00.Structures
             }
         }
 
+        // ---- 扭曲地宫：彩虹砖椭圆 + 岩浆半椭圆核心 ----
+        public static void PlaceTwistedCavern(int centerX, int centerY)
+        {
+            // 外椭圆 100×50，彩虹砖外壳
+            int aOuter = 50, bOuter = 25;
+            double aOuterSq = aOuter * aOuter, bOuterSq = bOuter * bOuter;
+
+            // 内半椭圆 50×25，只在下半部分（dy >= 0）填岩浆
+            int aInner = 25, bInner = 12;
+            double aInnerSq = aInner * aInner, bInnerSq = bInner * bInner;
+
+            for (int dx = -aOuter; dx <= aOuter; dx++)
+            {
+                for (int dy = -bOuter; dy <= bOuter; dy++)
+                {
+                    double outerDist = (dx * dx) / aOuterSq + (dy * dy) / bOuterSq;
+                    if (outerDist > 1.0) continue; // 在椭圆外
+
+                    int tx = centerX + dx;
+                    int ty = centerY + dy;
+                    if (tx < 0 || tx >= Main.maxTilesX || ty < 0 || ty >= Main.maxTilesY) continue;
+
+                    // 检查是否在内半椭圆（仅下半）→ 填岩浆
+                    double innerDist = (dx * dx) / aInnerSq + (dy * dy) / bInnerSq;
+                    if (innerDist <= 1.0 && dy >= 0)
+                    {
+                        WorldGen.KillTile(tx, ty);
+                        // 用 Liquid 类写入岩浆
+                        WorldGen.PlaceLiquid(tx, ty, 1, 255); // 1=lava
+                    }
+                    // 在椭圆边缘 → 彩虹砖外壳
+                    else if (outerDist > 0.75 || WorldGen.genRand.NextBool(8))
+                    {
+                        WorldGen.PlaceTile(tx, ty, TileID.RainbowBrick, true, true);
+                    }
+                    // 内部中空
+                    else
+                    {
+                        WorldGen.KillTile(tx, ty);
+                    }
+                }
+            }
+        }
+
         // ---- 废弃小屋残骸（部分坍毁效果） ----
         public static void PlaceRuins(int x, int y, int width, int height)
         {

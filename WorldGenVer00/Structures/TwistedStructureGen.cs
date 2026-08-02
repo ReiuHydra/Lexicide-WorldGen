@@ -49,6 +49,15 @@ namespace WorldGenVer00.Structures
                             true, true);
             }
 
+            // ---- 扭曲地宫：彩虹砖椭圆 + 岩浆核心 ----
+            int cavernCount = Math.Max(1, width / 600);
+            for (int i = 0; i < cavernCount; i++)
+            {
+                int ccx = WorldGen.genRand.Next(80, width - 80);
+                int ccy = WorldGen.genRand.Next((int)(height * 0.45f), (int)(height * 0.8f));
+                StructureTemplates.PlaceTwistedCavern(ccx, ccy);
+            }
+
             /*
             // ---- 地表结构 ----
             int hutCount = width / 180;

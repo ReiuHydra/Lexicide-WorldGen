@@ -83,25 +83,44 @@ namespace WorldGenVer00
         }
 
         private static int _preGenTimer = 120;
+        private static int _preGenState = 0; // 0=空闲 1=等待子世界加载 2=退出中
 
         public override void PostUpdateWorld()
         {
-            // 预生成：等世界加载完再触发
-            if (_preGenTimer > 0)
+            // 预生成状态机
+            switch (_preGenState)
             {
-                _preGenTimer--;
-                if (_preGenTimer == 0 && !SubworldSystem.IsActive<TwistedSubworld>() && Main.netMode != Terraria.ID.NetmodeID.Server)
-                {
-                    string sp = Main.WorldPath + System.IO.Path.DirectorySeparatorChar + "Subworlds"
-                        + System.IO.Path.DirectorySeparatorChar + "WorldGenVer00_TwistedSubworld.twld";
-                    if (!System.IO.File.Exists(sp))
+                case 0: // 空闲——计时器倒计时后触发进入
+                    if (_preGenTimer > 0 && !SubworldSystem.IsActive<TwistedSubworld>() && Main.netMode != Terraria.ID.NetmodeID.Server)
                     {
-                        Main.NewText("[空间扭曲] 正在预先生成扭曲子世界…", 200, 120, 150);
-                        SubworldSystem.Enter<TwistedSubworld>();
-                        SubworldSystem.Exit();
+                        _preGenTimer--;
+                        if (_preGenTimer == 0)
+                        {
+                            string sp = Main.WorldPath + System.IO.Path.DirectorySeparatorChar + "Subworlds"
+                                + System.IO.Path.DirectorySeparatorChar + "WorldGenVer00_TwistedSubworld.twld";
+                            if (!System.IO.File.Exists(sp))
+                            {
+                                Main.NewText("[空间扭曲] 正在预先生成扭曲子世界…", 200, 120, 150);
+                                SubworldSystem.Enter<TwistedSubworld>();
+                                _preGenState = 1; // 等待子世界加载
+                            }
+                        }
                     }
-                }
-                return;
+                    if (_preGenState != 0) return;
+                    break;
+
+                case 1: // 等待子世界完全加载
+                    if (SubworldSystem.IsActive<TwistedSubworld>())
+                    {
+                        SubworldSystem.Exit();
+                        _preGenState = 2; // 退出中
+                    }
+                    return;
+
+                case 2: // 等待退回主世界
+                    if (!SubworldSystem.IsActive<TwistedSubworld>())
+                        _preGenState = 3; // 完成
+                    return;
             }
 
             if (!EdgeTeleportRequest.HasValue) return;
