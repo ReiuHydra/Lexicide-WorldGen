@@ -60,7 +60,7 @@ namespace WorldGenVer00
 
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
         {
-            // 仅主世界：在 Final Cleanup 之前插入扭曲结构 Pass
+            // 仅主世界：追加结构 Pass
             if (!InTwistedGeneration)
             {
                 var structPass = new Structures.TwistedStructureGen.MainWorldStructurePass();
@@ -82,44 +82,38 @@ namespace WorldGenVer00
             orig(self, progress);
         }
 
-        private static int _preGenTimer = 120;
-        private static int _preGenState = 0; // 0=空闲 1=等待子世界加载 2=退出中
+        private static int _preGenState = 0; // 0=空闲 1=等待子世界加载 2=等待退回
 
         public override void PostUpdateWorld()
         {
-            // 预生成状态机
+            // 预生成状态机（首次进入存档时触发，零延迟）
+            string sp = Main.WorldPath + System.IO.Path.DirectorySeparatorChar + "Subworlds"
+                + System.IO.Path.DirectorySeparatorChar + "WorldGenVer00_TwistedSubworld.twld";
+
             switch (_preGenState)
             {
-                case 0: // 空闲——计时器倒计时后触发进入
-                    if (_preGenTimer > 0 && !SubworldSystem.IsActive<TwistedSubworld>() && Main.netMode != Terraria.ID.NetmodeID.Server)
+                case 0:
+                    if (!SubworldSystem.IsActive<TwistedSubworld>() && !System.IO.File.Exists(sp)
+                        && Main.netMode != Terraria.ID.NetmodeID.Server)
                     {
-                        _preGenTimer--;
-                        if (_preGenTimer == 0)
-                        {
-                            string sp = Main.WorldPath + System.IO.Path.DirectorySeparatorChar + "Subworlds"
-                                + System.IO.Path.DirectorySeparatorChar + "WorldGenVer00_TwistedSubworld.twld";
-                            if (!System.IO.File.Exists(sp))
-                            {
-                                Main.NewText("[空间扭曲] 正在预先生成扭曲子世界…", 200, 120, 150);
-                                SubworldSystem.Enter<TwistedSubworld>();
-                                _preGenState = 1; // 等待子世界加载
-                            }
-                        }
+                        Main.NewText("[空间扭曲] 正在生成扭曲子世界…", 200, 120, 150);
+                        SubworldSystem.Enter<TwistedSubworld>();
+                        _preGenState = 1;
                     }
                     if (_preGenState != 0) return;
                     break;
 
-                case 1: // 等待子世界完全加载
+                case 1:
                     if (SubworldSystem.IsActive<TwistedSubworld>())
                     {
                         SubworldSystem.Exit();
-                        _preGenState = 2; // 退出中
+                        _preGenState = 2;
                     }
                     return;
 
-                case 2: // 等待退回主世界
+                case 2:
                     if (!SubworldSystem.IsActive<TwistedSubworld>())
-                        _preGenState = 3; // 完成
+                        _preGenState = 3;
                     return;
             }
 

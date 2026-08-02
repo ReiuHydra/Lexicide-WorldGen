@@ -130,7 +130,6 @@ namespace WorldGenVer00.Structures
                     if (innerDist <= 1.0 && dy >= 0)
                     {
                         WorldGen.KillTile(tx, ty);
-                        // 用 Liquid 类写入岩浆
                         WorldGen.PlaceLiquid(tx, ty, 1, 255); // 1=lava
                     }
                     // 在椭圆边缘 → 彩虹砖外壳
