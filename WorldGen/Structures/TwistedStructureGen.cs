@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.WorldBuilding;
 
-namespace WorldGenVer00.Structures
+namespace WorldGen.Structures
 {
     /// <summary>
     /// 结构生成编排器。负责在子世界和主世界放置自定义结构。

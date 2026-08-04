@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace WorldGenVer00.Biomes
+namespace WorldGen.Biomes
 {
     /// <summary>
     /// 扭曲地表群系——子世界地表。由我们的结构物块标记激活。

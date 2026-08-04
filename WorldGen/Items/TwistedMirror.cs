@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace WorldGenVer00.Items
+namespace WorldGen.Items
 {
     /// <summary>
     /// "扭曲魔镜" —— 在主世界使用进入"似是非是"子世界，

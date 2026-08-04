@@ -1,5 +1,0 @@
-displayName = WorldGenVer00
-version = 0.1
-author = WorldGenTeam
-description = 子世界"似是非是"生成测试 - 基于Subworld Library的扭曲镜像世界生成模组
-modReferences = SubworldLibrary, StructureHelper

@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace WorldGenVer00.Players
+namespace WorldGen.Players
 {
     /// <summary>
     /// 提供"似是非是"子世界内的玩家效果，包括重力微调、

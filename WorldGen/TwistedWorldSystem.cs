@@ -9,7 +9,7 @@ using Terraria.GameContent.Generation;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace WorldGenVer00
+namespace WorldGen
 {
     public class TwistedWorldSystem : ModSystem
     {
@@ -88,7 +88,7 @@ namespace WorldGenVer00
         {
             // 预生成状态机（首次进入存档时触发，零延迟）
             string sp = Main.WorldPath + System.IO.Path.DirectorySeparatorChar + "Subworlds"
-                + System.IO.Path.DirectorySeparatorChar + "WorldGenVer00_TwistedSubworld.twld";
+                + System.IO.Path.DirectorySeparatorChar + "WorldGen_TwistedSubworld.twld";
 
             switch (_preGenState)
             {
