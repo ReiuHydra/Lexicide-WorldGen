@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace WorldGen.Structures
+namespace LexWorld.Structures
 {
     /// <summary>
     /// 可复用的结构模板方法。

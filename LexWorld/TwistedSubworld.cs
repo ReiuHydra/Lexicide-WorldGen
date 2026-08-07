@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace WorldGen
+namespace LexWorld
 {
     public class TwistedSubworld : Subworld
     {

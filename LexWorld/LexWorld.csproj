@@ -1,8 +1,8 @@
 <Project Sdk="tModLoader.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>WorldGenVer00</AssemblyName>
-    <RootNamespace>WorldGenVer00</RootNamespace>
+    <AssemblyName>LexWorld</AssemblyName>
+    <RootNamespace>LexWorld</RootNamespace>
     <ModSide>Both</ModSide>
     <ModLoaderVersion>2023.11.28.64</ModLoaderVersion>
   </PropertyGroup>

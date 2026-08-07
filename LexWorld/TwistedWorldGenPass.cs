@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.WorldBuilding;
 
-namespace WorldGen
+namespace LexWorld
 {
     public class TwistedWorldGenPass
     {

@@ -1,4 +1,4 @@
-displayName = WorldGen
+displayName = LexWorld
 version = 1.0
 author = CloudChaserStudio
 description = 基于Subworld Library的世界生成模组

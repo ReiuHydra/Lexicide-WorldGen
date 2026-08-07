@@ -3,7 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using SubworldLibrary;
 
-namespace WorldGenVer00.NPCs
+namespace LexWorld.NPCs
 {
     /// <summary>
     /// 调整"似是非是"子世界内的 NPC 生成速率和强度。
