@@ -1,0 +1,13 @@
+基于 SilkyUI 的"PPT 式"场景管理器模组（SlideUI）。
+
+当前阶段：阶段四完成
+- SlideShowManager 单例：场景注册 / 切换 / 每帧驱动动画与绑定
+- 元素：Text / Image / Shape / Button（每元素独立转场时间线）
+- 转场：Linear / EaseInOut / Bezier（含预设）
+- 联动 Binding：悬停变色 / 图片放大，自动恢复场景基准值
+- JSON 场景定义（Content/scenes.json，内容与代码分离）
+- Mod.Call 对外 API：SwitchTo / ShowScene / NextScene / PreviousScene / GetCurrentScene / IsTransitioning
+- 性能优化：静止元素跳过每帧重绘
+
+演示：进入世界后按 ← / → 键顺序翻页（不循环），
+或点击底部页码按钮一键跳转到指定页；悬停页码按钮时标题变色、图片放大，移开后自动恢复。

@@ -1,0 +1,5 @@
+displayName = SlideUI 幻灯片
+version = 0.1.0
+author = CloudChaserStudio
+description = 基于 SilkyUI 的"PPT 式"场景管理器模组：场景注册、线性转场、元素状态动画。
+modReferences = SilkyUIFramework

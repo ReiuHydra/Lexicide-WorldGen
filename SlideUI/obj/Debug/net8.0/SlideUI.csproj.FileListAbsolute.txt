@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\SlideUI.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\SlideUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\SlideUI.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\SlideUI.AssemblyInfo.cs
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\SlideUI.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\bin\Debug\net8.0\SlideUI.deps.json
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\bin\Debug\net8.0\SlideUI.dll
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\bin\Debug\net8.0\SlideUI.pdb
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\SlideUI.dll
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\refint\SlideUI.dll
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\SlideUI.pdb
+C:\Users\Administrator\Documents\My Games\Terraria\tModLoader\ModSources\SlideUI\obj\Debug\net8.0\ref\SlideUI.dll

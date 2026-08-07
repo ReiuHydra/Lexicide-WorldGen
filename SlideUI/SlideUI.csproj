@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\tModLoader.targets" />
+
+	<PropertyGroup>
+		<AssemblyName>SlideUI</AssemblyName>
+		<RootNamespace>SlideUI</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!--
+			SilkyUIFramework 引用说明：
+			- 该模组以前置模组方式使用，构建产物为 ModSources\SilkyUIFramework-main\SilkyUIFramework-main\bin\Debug\net8.0\SilkyUIFramework.dll
+			- Private=false 表示不把 SilkyUIFramework.dll 打包进本模组（运行时由 SilkyUIFramework 前置模组提供）
+			- 如果 SilkyUIFramework 以 Release 配置构建，请把 HintPath 中的 Debug 改为 Release
+		-->
+		<Reference Include="SilkyUIFramework">
+			<HintPath>..\SilkyUIFramework-main\SilkyUIFramework-main\bin\Debug\net8.0\SilkyUIFramework.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+</Project>

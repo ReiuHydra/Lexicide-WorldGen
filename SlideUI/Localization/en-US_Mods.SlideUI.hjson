@@ -1,0 +1,7 @@
+Keybinds: {
+	NextSlide.DisplayName: Next Slide
+	PreviousSlide.DisplayName: Previous Slide
+	LoadSlides.DisplayName: Load Slides
+	LoadAltSlides.DisplayName: Load Alt Slides
+	UnloadSlides.DisplayName: Unload Slides
+}
